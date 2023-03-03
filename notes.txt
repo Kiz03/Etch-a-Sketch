@@ -1,0 +1,50 @@
+ // window.onload=function(){
+    //let gridy = document.querySelectorAll('.grid');
+    //gridy.addEventListener('click', work);
+//}
+       
+ //function work() {
+  //  for (let i = 0; i<=gridy.length; i++) {
+    //      gridy[i].style.color = 'black';
+      //      }
+      // }
+   // gridd.forEach(grid => {
+          // grid.addEventListener('click', grid => {
+               // grid.style.color = 'black'; 
+           ///})
+     // })
+
+        //const grids = document.querySelectorAll('.grid');
+       // console.log(grids);
+       // grids.style.color = "black";
+       // grids.forEach(grid => {
+          //  grid.addEventListener('mouseover', () => {
+            //     = 'black'; 
+
+           // })
+       // })
+       // for (let i = 0; i <= grids.length; i++ ) {
+          //  grids[i].addEventListener('mouseover', () => {
+           //     grids[i].style.color = 'black';
+           // })
+       // }
+    
+        
+
+        // PROBLEMS 1. deal with setting a default value  
+       
+        //console.log(`${basis}%`);
+        //let grid = document.getElementsByClassName('grid');
+        //console.log(grid);
+      
+        
+       // document.getElementsByClassName('grid').style.flexBasis = `${basis}%`; 
+
+
+
+        //cont.innerHTML = '<div class="grid"></div>'
+
+       
+      // ldiv.classList.add('grid');  
+        //cont.append(div);
+        

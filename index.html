@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+           margin: 0;
+           padding: 0;
+        }
+        body {
+           height: 100vh;
+           width: 100vw;
+        }
+        * {
+            box-sizing: border-box;
+          }
+
+          .daddy {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+            background-color: rgb(71, 70, 70);
+            justify-content: center;
+            align-items: center;
+
+          }
+        .container {
+            display: flex;
+            background-color: rgb(255, 255, 255);
+            width: 550px;
+            height: 550px;
+            flex-wrap: wrap;
+
+            
+        }
+
+        .grid {
+           
+            /*flex-grow: 1;
+            flex-shrink:1; */  
+        }
+
+        .small {
+          height:100%;
+          width:100%;
+        }
+
+        .border {
+            display: flex;
+            width: 650px;
+            height: 650px;
+            background-color: red;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .minidad {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: center;
+            background-color: rgb(41, 40, 40);
+            gap: 100px;
+        }
+
+        .colour {
+            height: 60px;
+            width: 100px;
+            border: 5px solid #f63838;
+            border-radius: 25px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 20px;
+            
+            
+            
+            
+        }
+
+        .blck {
+            height: 60px;
+            width: 100px;
+            border: 5px solid #f63838;
+            border-radius: 25px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 20px;
+            
+            
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap:65px;
+            justify-content: space-around;
+        
+        }
+
+        .rst {
+            height: 60px;
+            width: 100px;
+            border: 5px solid #f63838;
+            border-radius: 25px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 20px;
+            
+        }
+
+        .rise {
+            height: 60px;
+            width: 100px;
+            border: 5px solid #f63838;
+            border-radius: 25px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 20px;
+            
+        }
+        .text {
+            font-size: 100px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color:crimson;
+            background-color: white;
+            border: 5px solid white;
+            border-radius: 25px;
+            margin-left: 190px;
+            margin-bottom: 25px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="daddy"> 
+        <div class="text">Etch-A-Sketch</div>
+        <div class="minidad">
+        <div class="buttons"> 
+        <button class="colour">Rainbow</button>
+        <button class="blck">Black</button>
+        <button class="rst">Clear</button>
+        <button class="rise">10% Black</button>
+        </div>
+        <div class="border"> 
+    <div class = 'container'></div>
+    </div>
+    </div>
+    </div>
+
+    <script>
+        const cont = document.querySelector('.container');
+       // let div; for (let i = 1; i<257; i++) {
+           // div = document.createElement('div'); 
+       // }
+        //const div = document.createElement('div');
+         
+        let htmlel = "";
+        let gaza = parseInt(prompt('How many squares? (MAXIMUM: 100)'));
+        const basis = ((550/gaza) / 550) * 100;
+        let number = gaza * gaza;
+        if (number > 10000) {
+            number = 256;
+        }
+        for (let i = 1; i<(number + 1); i++) {
+            htmlel += `<div style = "flex: 1 1 ${basis}%;" class="grid"></div>`; 
+        } // right now currently stuck on how to change colour of indivudal grid
+        // put this stuff in function in order 
+        
+
+        
+
+        cont.innerHTML = htmlel;
+       // newhtml = "";
+       
+    let gridd = document.querySelectorAll('.grid');
+    console.log(gridd);
+    
+
+    let rainbowbutt = document.querySelector('.colour');
+
+    function rain () {
+        let gaga = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
+    //let ran = Math.floor(Math.random() * gaga.length);
+   let rr = '#';
+   for (let i = 0; i<6; i++) {
+    rr += gaga[(Math.floor(Math.random() * gaga.length))];
+   }
+
+   return rr; 
+
+    }
+    //rain();
+
+   
+
+    function e() {
+        for (let i = 0; i < gridd.length; i++ ) {
+        gridd[i].addEventListener('mouseover', () => {
+          // console.log('nee');
+          gridd[i].innerHTML = `<div style = "background-color:${rain()};" class="small"></div>`;
+          console.log(gridd[i].innerHTML);
+           
+        }, {once: true})
+    }
+
+    }
+
+    function d() {
+        for (let i = 0; i < gridd.length; i++ ) {
+        gridd[i].addEventListener('mouseover', () => {
+          // console.log('nee');
+          gridd[i].innerHTML = '<div style = "background-color:black;" class="small"></div>';
+          console.log(gridd[i].innerHTML);
+           
+        }, {once: true})
+    }
+
+    }
+
+    let click = 0;
+    let clearr;
+
+    
+    function dy() {
+        click = 1; 
+        if (click === 1) {
+             return e();
+           
+            
+        }
+    }
+    
+    function ey() {
+        click = 2;
+        if (click === 2) {
+         return d();
+     }
+
+    }
+        
+    
+        
+    rainbowbutt.addEventListener('click', dy);
+
+    let blackness = document.querySelector('.blck');
+
+    blackness.addEventListener('click', ey);
+
+     
+   let rset = document.querySelector('.rst');
+
+   
+
+
+   rset.addEventListener('click', ()=> {
+    clearr = true;
+    if (clearr === true) {
+        gridd.forEach( e => {
+            e.innerHTML = '';
+        })
+    }
+   
+   })
+
+    
+ let risin = document.querySelector('.rise');
+ let perc = 100;
+ function blaack() {
+    for (let i = 0; i<gridd.length; i++) {
+        perc -= 10;
+        gridd[i].addEventListener('mouseover', () => {
+            gridd[i].innerHTML = `<div style = "filter:brightness(${perc}%);background-color:pink;" class="small"></div>`;
+
+        }, {once: true})
+        
+    }
+ }
+
+ function work() {
+    click = 3;
+    if (click === 3) {
+        return blaack();
+    }
+ }
+
+ 
+    
+    risin.addEventListener('click', work);
+       
+       
+    
+   
+    
+
+    
+  
+        
+        
+    </script>
+</body>
+</html>
